@@ -1,3 +1,10 @@
+/*
+Autor: Ruiz Armella Juan Nicolas
+Ejercicio IF 09
+
+Al presionar el Botón, mostrar un número Random del 1 al 10 inclusive.
+*/
+
 function mostrar()
 {
 	let numRandom;

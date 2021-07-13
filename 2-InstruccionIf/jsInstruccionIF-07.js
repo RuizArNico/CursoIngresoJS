@@ -1,16 +1,29 @@
+/*
+Autor: Ruiz Armella Juan Nicolas
+Ejercicio IF 07
+
+Al ingresar una edad menor a 18 años y 
+un estado civil distinto a "Soltero", 
+mostrar el siguiente mensaje: 'Es muy pequeño para NO ser soltero.' 
+
+*/
+
 function mostrar()
 {
-	let edad; let estado;
+	let edad; let estadoCivil; let mensaje;
 
 	//tomo la edad  
 	edad = document.getElementById("txtIdEdad").value;
 	edad = parseInt(edad);
 
-	estado = document.getElementById("estadoCivil").value;
+	estadoCivil = document.getElementById("estadoCivil").value;
 
-	if( edad < 18 && estado != "Soltero"){
+	mensaje = "Es muy pequeño para NO ser soltero.";
 
-		alert("Es muy pequeño para NO ser soltero.");
+	if( edad < 18 && !(estadoCivil == "Soltero") )
+	{
+
+		alert(mensaje);
 
 	}
 

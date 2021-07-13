@@ -1,26 +1,38 @@
+/*
+Autor: Ruiz Armella Juan Nicolas
+Ejercicio IF 06 Correccion
+
+Al ingresar una edad debemos informar si la persona es mayor de edad (mas de 18 años) o adolescente (entre 13 y 17 años) o niño (menor a 13 años).
+*/
+
 function mostrar()
 {
-	let age;
+	let edad; let mensaje;
 
 	//tomo la edad
-	age = document.getElementById("txtIdEdad").value;
-	age = parseInt(age);
+	edad = document.getElementById("txtIdEdad").value;
+	edad = parseInt(edad);
 
-	if( age >= 18 && age <= 65){
+
+	if( edad > 17){
 		
-		alert("Usted es mayor de edad.");
+		mensaje = "Usted es mayor de edad.";
 
-	}else if( age >= 13 && age <= 17){
+	}else
+	{
+		if( edad < 13)
+		{
 
-		alert("Usted es adolescente.");
+			mensaje = "Usted es un niño.";
 
-	}else if( age >= 4 && age <= 12){
+		}else
+		{
+		
+			mensaje = "Usted es adolescente.";
 
-		alert("Usted es un niño.");
-
+		}
 	}
-	
 
-
+	alert(mensaje);
 
 }//FIN DE LA FUNCIÓN

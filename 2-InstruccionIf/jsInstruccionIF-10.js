@@ -1,28 +1,43 @@
+/*
+Autor: Ruiz Armella Juan Nicolas
+Ejercicio IF 10
+
+Al presionar el Bot&oacute;n, 
+asignar una nota RANDOM al examen y mostrar:
+"EXCELENTE" para notas igual a 9 o 10,
+"APROBÓ" para notas mayores a 4,
+"Vamos, la proxima se puede" para notas menores a 4
+*/
+
 function mostrar()
 {
-	let numRandom;
+	let numRandom; let mensaje;
 
-	//Genero el número RANDOM entre 1 y 10 
-	// Math.random() * (maximo - minimo) - minimo;
-	// Ejemplo --------(  10   -   1   ) -   1   ;
-	
-	// Math.floor lleva el numero entero anterior. Ej: 6.234 o 6.987 es igual a 6.
+	numRandom = Math.floor(Math.random() * 10 + 1) ;
 
-	numRandom = Math.round(Math.random() * 10 + 1) ;
+	if( numRandom == 9 || numRandom == 10 )
+	{
 
-	if( numRandom == 9 || numRandom == 10 ){
-
-		alert("EXCELENTE. Nota: " + numRandom);
-
-	}else if( numRandom >= 4 && numRandom <= 8 ){
-
-		alert("APROBÓ. Nota: " + numRandom);
-
-	}else if( numRandom < 4){
-
-		alert("Vamos, la proxima se puede. Nota: " + numRandom);
+		mensaje = "EXCELENTE. Nota: " + numRandom;
 
 	}
+	else
+	{ 
+		if( numRandom > 3)
+		{
+
+			mensaje = "APROBÓ. Nota: " + numRandom;
+
+		}
+		else
+		{
+			
+			mensaje = "Vamos, la proxima se puede. Nota: " + numRandom;
+			
+		} 
+	}
+
+	alert(mensaje);
 	
 
 }//FIN DE LA FUNCIÓN
