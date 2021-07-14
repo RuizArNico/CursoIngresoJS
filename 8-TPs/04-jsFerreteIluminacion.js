@@ -1,6 +1,6 @@
 /*
 Autor: Ruiz Armella Juan Nicolas
-TP 04 IF
+TP 04 IF - correccion if anidado
 4.	Para el departamento de iluminación:
 Tomando en cuenta que todas las lámparas están en oferta al mismo precio de $35 pesos final.
 A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
@@ -13,66 +13,80 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
-      let precioLamparas; let descuento; let marca; let importeFinal; let ingresosBrutos; let cantidadLamparas; let mensaje;
+      let precioLamparas; let descuento; let marca; let importeFinal; let ingresosBrutos; let cantidadLamparas; let mensaje; let calculoDescuento;
       precioLamparas = 35;
       cantidadLamparas = document.getElementById("txtIdCantidad").value;
       cantidadLamparas = parseInt(cantidadLamparas);
       marca = document.getElementById("Marca").value;
       
       precioLamparas = 35 * cantidadLamparas;
+      // corregir la anidacion.
       //Opcion A
       if( cantidadLamparas > 5)
       {
-         descuento =  precioLamparas * 50 / 100;
-      }
-      // Opcion B
-      if(cantidadLamparas == 5)
-      {
-            if(marca == "ArgentinaLuz")
-            {
-            descuento = precioLamparas * 40 / 100;
-            }
+         descuento =  50;
       }
       else
       {
-            descuento = precioLamparas * 30 / 100;
-      }
-      //Opcion C
-      if(cantidadLamparas == 4)
-      {
-            if(marca == "ArgentinaLuz" || marca == "FelipeLamparas")
+            // Opcion B
+            if(cantidadLamparas > 4)
             {
-                  descuento = precioLamparas * 25 / 100;
-            }
-            else
-            {
-                  descuento = precioLamparas * 20 / 100;
-            }
-            
-      }
-      
-      //Opcion D
-      if(cantidadLamparas == 3)
-      {
-            if(marca == "ArgentinaLuz")
-            {
-                  descuento = precioLamparas * 15 / 100;
-            }
-            else
-            {
-                  if(marca == "FelipeLamparas")
+                  if(marca == "ArgentinaLuz")
                   {
-                        descuento = precioLamparas * 10 / 100;
+                        descuento = 40;
                   }
                   else
                   {
-                        descuento = precioLamparas * 5 / 100;
+                        descuento = 30;
                   }
             }
+            else
+            {
+                  //Opcion C
+                  if(cantidadLamparas > 3)
+                  {
+                        if(marca == "ArgentinaLuz" || marca == "FelipeLamparas")
+                        {
+                              descuento =  25;
+                        }
+                        else
+                        {
+                              descuento =  20;
+                        }     
+                  }
+                  else
+                  {
+                        //Opcion D
+                        if(cantidadLamparas < 3)
+                        {
+                              descuento = 0;
+                        }
+                        else
+                        {
+                              if(marca == "ArgentinaLuz")
+                              {
+                                    descuento =  15;
+                              }
+                              else
+                              {
+                                    if(marca == "FelipeLamparas")
+                                    {
+                                          descuento = 10 ;
+                                    }
+                                    else
+                                    {
+                                          descuento =  5;
+                                    }
+                              }
+                        }
+                  }
+            }
+            
       }
-      
+
+      calculoDescuento = precioLamparas * descuento / 100;
       //Opcion E      
-      importeFinal = precioLamparas - descuento;
+      importeFinal = precioLamparas - calculoDescuento;
       document.getElementById("txtIdprecioDescuento").value = importeFinal;
       
       if(importeFinal > 119)
